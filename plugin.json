@@ -1,0 +1,15 @@
+{
+    "id": "c2-theme",
+    "name": "C2 Theme",
+    "author": "Mori",
+    "version": "1.0.0",
+    "description": "C2 inspired theme.",
+    "category": "theme",
+    "url": "https://github.com/pelican-dev/plugins/tree/main/c2-theme",
+    "update_url": null,
+    "namespace": "Mori\\C2Theme",
+    "class": "C2ThemePlugin",
+    "panels": null,
+    "panel_version": null,
+    "composer_packages": null
+}

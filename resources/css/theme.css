@@ -1,0 +1,367 @@
+/* Theme based on C.C. (Code Geass)
+    Original structure by Andréia Bohner (Filament Nord Theme)
+    Adapted for C.C. Dark Theme
+*/
+
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@theme {
+    --color-secondary-50: rgba(var(--secondary-50), <alpha-value>);
+    --color-secondary-100: rgba(var(--secondary-100), <alpha-value>);
+    --color-secondary-200: rgba(var(--secondary-200), <alpha-value>);
+    --color-secondary-300: rgba(var(--secondary-300), <alpha-value>);
+    --color-secondary-400: rgba(var(--secondary-400), <alpha-value>);
+    --color-secondary-500: rgba(var(--secondary-500), <alpha-value>);
+    --color-secondary-600: rgba(var(--secondary-600), <alpha-value>);
+    --color-secondary-700: rgba(var(--secondary-700), <alpha-value>);
+    --color-secondary-800: rgba(var(--secondary-800), <alpha-value>);
+    --color-secondary-900: rgba(var(--secondary-900), <alpha-value>);
+    --color-secondary-950: rgba(var(--secondary-950), <alpha-value>);
+
+    /* Charcoal Grays (Replacing Nord Polarnight) */
+    --color-charcoal-50: #f6f7f8;
+    --color-charcoal-100: #eceef0;
+    --color-charcoal-200: #d5d9df;
+    --color-charcoal-300: #b3b9c3;
+    --color-charcoal-400: #8b94a1;
+    --color-charcoal-500: #6b7583;
+    --color-charcoal-600: #535b68;
+    --color-charcoal-700: #434a55;
+    --color-charcoal-800: #2a2e35;
+    --color-charcoal-900: #1a1d21;
+    --color-charcoal-950: #0e1012;
+}
+
+/* ===========================
+   Layout & Structure
+   =========================== */
+
+.fi-layout {
+    @apply bg-[#f6f7f8] dark:bg-[#1a1d21];
+}
+
+.fi-body {
+    @apply bg-[#f6f7f8] dark:bg-charcoal-900;
+}
+
+/* ===========================
+   Topbar & Sidebar
+   =========================== */
+
+.fi-topbar {
+    & nav {
+        @apply bg-[#f6f7f8] dark:bg-[#1a1d21];
+    }
+
+    & .fi-tenant-menu {
+        @apply lg: !hidden;
+    }
+}
+
+.fi-sidebar-header {
+    @apply bg-[#f6f7f8] dark:bg-[#1a1d21];
+}
+
+.fi-sidebar-item-label,
+.fi-topbar-item-label {
+    @apply dark:text-gray-400;
+}
+
+/* Sidebar Items */
+.fi-sidebar-item {
+    & .fi-sidebar-item-button {
+        @apply rounded-lg hover:bg-[#d5d9df] dark:hover:bg-white/5;
+    }
+
+    &-active {
+        & a {
+            & svg {
+                @apply text-primary-800;
+            }
+
+            & span {
+                @apply text-primary-800 dark:text-primary-400;
+            }
+        }
+
+        & .fi-sidebar-item-button {
+            @apply rounded-lg bg-[#eceef0] dark:focus-visible:bg-white/5 dark:bg-white/5;
+        }
+    }
+}
+
+/* Topbar Items */
+.fi-topbar-item {
+    & .fi-topbar-item-button {
+        @apply rounded-lg hover:bg-[#d5d9df] dark:hover:bg-white/5;
+    }
+
+    &-active {
+        & a svg {
+            @apply text-primary-800;
+        }
+
+        & a span {
+            @apply text-primary-800 dark:text-primary-400;
+        }
+
+        & .fi-topbar-item-button {
+            @apply rounded-lg bg-[#eceef0] dark:focus-visible:bg-white/5 dark:bg-white/5;
+        }
+
+        & a,
+        & button {
+            @apply bg-secondary-500 hover:bg-secondary-400 dark:bg-primary-500 dark:text-secondary-500 dark:hover:bg-primary-400;
+        }
+
+        & svg {
+            @apply dark:text-secondary-500;
+        }
+    }
+}
+
+/* Sidebar & Topbar Badges */
+.fi-sidebar-item-button,
+.fi-topbar-item-button {
+    & .fi-badge {
+        @apply bg-primary-300 dark:bg-primary-200;
+
+        & span span {
+            @apply text-gray-700;
+        }
+    }
+}
+
+.fi-sidebar-item-badge-ctn {
+    & .fi-badge {
+        @apply bg-primary-300 dark:bg-primary-200;
+
+        & span span {
+            @apply text-gray-700;
+        }
+    }
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+
+.fi-btn {
+    &:not(.fi-btn-group .fi-btn) {
+        @apply rounded-full;
+    }
+
+    &-color-primary {
+        @apply bg-[#62a939];
+        /* C.C. Green */
+
+        & .fi-btn-label {
+            @apply text-primary-950;
+        }
+    }
+
+    &-color-gray span {
+        @apply text-[#434a55] dark:text-[#eceef0];
+    }
+}
+
+.fi-btn-group {
+    @apply rounded-full;
+
+    &>.fi-btn {
+        &:first-of-type {
+            @apply rounded-s-full;
+        }
+
+        &:last-of-type {
+            @apply rounded-e-full;
+        }
+    }
+}
+
+/* ===========================
+   Tables
+   =========================== */
+
+.fi-ta-ctn {
+    @apply shadow-md rounded-2xl border-none ring-0 dark:ring-1 divide-gray-100 dark:divide-white/20;
+
+    &,
+    & .fi-ta-ctn-with-header {
+        @apply dark:bg-[var(--color-charcoal-800)];
+    }
+}
+
+.fi-ta-table {
+    & thead tr {
+        @apply bg-[#fcfcfc] dark:bg-[#2a2e35];
+    }
+}
+
+.fi-ta-header-cell-label {
+    @apply text-[#434a55] dark:text-[#eceef0];
+}
+
+.fi-ta-toggle {
+    &>div.fi-color-custom {
+        @apply bg-primary-500;
+    }
+
+    &>div.fi-color-gray {
+        @apply bg-gray-200;
+    }
+}
+
+/* Table Search Field */
+.fi-ta-search-field {
+    & .fi-input-wrp {
+        @apply rounded-full bg-[#f6f7f8] dark:bg-gray-900;
+    }
+}
+
+/* ===========================
+   Widget Backgrounds & Styles
+   =========================== */
+
+/* Generic section-based widgets */
+.fi-wi-widget:not(.fi-wi-stats-overview):not(.fi-wi-chart):not(.fi-wi-table) {
+    & .fi-section {
+        @apply border border-transparent dark:bg-secondary-900 shadow-md rounded-2xl border-none ring-0 dark:ring-1 dark:ring-gray-700 dark:hover:text-white/70 dark:hover:ring-gray-500;
+    }
+}
+
+/* Stats overview - individual stat cards */
+.fi-wi-stats-overview-stat {
+    @apply border border-transparent dark:bg-secondary-900 shadow-md rounded-2xl border-none ring-0 dark:ring-1 dark:ring-gray-700 dark:hover:text-white/70 dark:hover:ring-gray-500;
+}
+
+/* Chart widgets */
+.fi-wi-widget.fi-wi-chart {
+    & .fi-section {
+        @apply border border-transparent dark:bg-secondary-900 shadow-md rounded-2xl border-none ring-0 dark:ring-1 dark:ring-gray-700 dark:hover:text-white/70 dark:hover:ring-gray-500;
+    }
+}
+
+/* Table widget */
+.fi-wi-widget.fi-wi-table {
+    & .fi-ta-ctn {
+        @apply border border-transparent dark:bg-secondary-900 shadow-md rounded-2xl border-none ring-0 dark:ring-1 dark:ring-gray-700 dark:hover:text-white/70 dark:hover:ring-gray-500;
+    }
+}
+
+/* Gradient backgrounds for dark mode */
+.dark {
+
+    & .fi-wi-widget:not(.fi-wi-stats-overview):not(.fi-wi-chart):not(.fi-wi-table) .fi-section,
+    & .fi-wi-stats-overview-stat,
+    & .fi-wi-widget.fi-wi-chart .fi-section,
+    & .fi-wi-widget.fi-wi-table .fi-ta-ctn,
+    & .fi-tenant-menu,
+    & .fi-dropdown-panel {
+        background:
+            linear-gradient(#1a1d21, #2a2e35),
+            linear-gradient(to right, rgb(98, 169, 57), rgb(42, 46, 53));
+        /* C.C. Green to Charcoal */
+        background-clip: padding-box, border-box;
+        background-origin: border-box;
+    }
+}
+
+/* Other containers */
+.fi-tenant-menu,
+.fi-dropdown-panel {
+    @apply border border-transparent dark:bg-secondary-900;
+}
+
+.fi-tenant-menu {
+    @apply rounded-lg mt-4;
+}
+
+/* ===========================
+   Forms & Inputs
+   =========================== */
+
+.fi-input-wrp {
+    @apply ring-1 ring-[#d5d9df] dark:ring-white/20;
+}
+
+.fi-input {
+    @apply disabled: !bg-gray-50 dark:disabled: !bg-gray-800;
+}
+
+.fi-fo-field-wrp-label span {
+    @apply text-[#6b7583];
+}
+
+.fi-fo-field-wrp-helper-text {
+    @apply text-gray-500 dark:text-gray-300;
+}
+
+.fi-fo-field-wrp-error-message {
+    @apply text-[#E11D48] dark:text-[#f43f5e];
+    /* Geass Red */
+}
+
+.fi-invalid {
+    @apply ring-[#E11D48] dark:ring-[#f43f5e];
+}
+
+.fi-fo-toggle {
+    &.fi-color-custom {
+        @apply bg-primary-500;
+    }
+
+    &.fi-color-gray {
+        @apply bg-gray-200;
+    }
+}
+
+/* ===========================
+   Global Search
+   =========================== */
+
+.fi-global-search-field {
+    & .fi-input-wrp {
+        @apply rounded-full bg-[#f6f7f8] dark:bg-gray-900 ring-4 ring-white dark:ring-gray-800;
+
+        & .fi-input-wrp-prefix {
+            @apply bg-white dark:bg-gray-800 rounded-full ps-2 mr-2;
+        }
+    }
+}
+
+/* ===========================
+   Tabs
+   =========================== */
+
+.fi-tabs-item-active {
+    @apply bg-primary-100;
+
+    & span {
+        @apply !text-secondary-900 dark: !text-gray-100;
+    }
+}
+
+/* ===========================
+   Badges
+   =========================== */
+
+.fi-badge {
+    @apply rounded-xl;
+}
+
+/* ===========================
+   Breadcrumbs
+   =========================== */
+
+.fi-breadcrumbs-item-label {
+    @apply text-[var(--color-charcoal-400)];
+}
+
+/* ===========================
+   Headers
+   =========================== */
+
+.fi-header-heading {
+    @apply text-[#434a55] dark:text-[#eceef0];
+}
